@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/08 17:12:56 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/10 11:33:46 by abdelahm         ###   ########.fr       */
+/*   Created: 2025/11/10 14:09:38 by abdelahm          #+#    #+#             */
+/*   Updated: 2025/11/10 16:06:39 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (c < 127 && c > 31)
-		return (1);
-	else
-		return (0);
+	char *srcptr;
+	char *dstptr;
+	int	i;
+
+	srcptr = (char *)src;
+	dstptr = (char *)dest;
+	while (n--)
+	{
+		
+	}
+	return (dest);
 }

@@ -1,6 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/11/10 15:11:36 by abdelahm          #+#    #+#              #
+#    Updated: 2025/11/10 15:11:39 by abdelahm         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 FLAG = -Wall -Wextra -Werror
 NAME = libft.a
-SOURCE = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c
+SOURCE = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_isprint.c ft_memset.c ft_bzero.c ft_strlen.c ft_bzero.c ft_memcpy.c
 OBJECT = $(SOURCE:.c=.o)
 
 all: $(NAME)
