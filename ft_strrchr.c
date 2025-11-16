@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 14:26:40 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/16 14:26:15 by abdelahm         ###   ########.fr       */
+/*   Created: 2025/11/16 13:51:59 by abdelahm          #+#    #+#             */
+/*   Updated: 2025/11/16 17:23:34 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
-	char *smod;
+	size_t	i;
 
-	i = 0;
-	smod = (char *)s;
-	while (s[i])
+	i = ft_strlen(s);
+	while (i > 0)
 	{
-		if ((unsigned char)smod[i] == (unsigned char)c)
-			return (&smod[i]);
-		i++;
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i--;
 	}
-	if ((unsigned char)c == '\0')
-		return (&smod[i]);
+	if (s[0] == (char)c)
+		return ((char *)&s[0]);
 	return (NULL);
 }
 
@@ -34,10 +32,10 @@ char	*ft_strchr(const char *s, int c)
 // {
 // 	const char *s = "Hello, world";
 // 	char *ret;
-// 	char ch = 'o';
-// 	ret = ft_strchr(s, ch);
+// 	char ch = '\0';
+// 	ret = ft_strrchr(s, ch);
 // 	printf("search '%c' in |%s|, Found, |%s|\n", ch, s, ret);
-// 	ret = strchr(s, ch);
+// 	ret = strrchr(s, ch);
 // 	printf("search '%c' in |%s|, Found, |%s|\n", ch, s, ret);
 // 	return 0;
 // }
