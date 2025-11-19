@@ -6,7 +6,7 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:26:40 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/16 14:26:15 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/11/19 14:57:33 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	char *smod;
+	int		i;
+	char	*smod;
 
 	i = 0;
 	smod = (char *)s;
