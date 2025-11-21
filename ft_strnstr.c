@@ -6,53 +6,33 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 15:27:33 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/20 18:10:30 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/11/21 17:35:44 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// char	*ft_strnstr(const char *big, const char *little, size_t len)
-// {
-// 	size_t	i;
-// 	size_t	l;
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	i;
+	size_t	l;
 
-// 	i = 0;
-// 	if (little[0] == '\0')
-// 	return ((char *) big);
-// 	while (i < len && big[i])
-// 	{
-// 		l = 0;
-// 		while (big[i + l] == little[l] && i + l < len)
-// 			l++;
-// 		i++;
-// 	}
-// 	return ((char *)big + i);
-// }
-
-// char	*ft_strnstr(const char *big, const char *little, size_t len)
-// {
-// 	size_t	i;
-// 	size_t	l;
-
-// 	if (*little == '\0')
-// 		return ((char *)big);
-
-// 	i = 0;
-// 	while (big[i] && i < len)
-// 	{
-// 		l = 0;
-// 		while (i + l < len && big[i + l] == little[l])
-// 		{
-// 			if (little[l + 1] == '\0')
-// 				return ((char *)big + i);
-// 			l++;
-// 		}
-// 		i++;
-// 	}
-// 	return (NULL);
-// }
-
+	i = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
+	{
+		l = 0;
+		while (i + l < len && big[i + l] == little[l])
+		{
+			if (little[l + 1] == '\0')
+				return ((char *)big + i);
+			l++;
+		}
+		i++;
+	}
+	return (NULL);
+}
 
 // int main(void)
 // {
