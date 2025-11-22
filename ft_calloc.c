@@ -6,7 +6,7 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 16:24:00 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/22 16:50:49 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/11/22 18:29:14 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 
 	ptr = malloc(nmemb * size);
-	if (!ptr)
+	if (!ptr )
 		return (NULL);
-	ft_memset(ptr, 0, size);
+	ft_memset(ptr, 0, size * nmemb);
 	return (ptr);
 }
+
+
+
+
+// #include <stdint.h>
 
 // void    *ft_calloc(size_t nmemb, size_t size)
 // {
