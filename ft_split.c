@@ -6,13 +6,13 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:32:18 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/25 16:53:38 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:43:37 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(char const *s, char c)
+int	chunks(char const *s, char c)
 {
 	int	i;
 	int	counter;
@@ -28,7 +28,7 @@ static int	count_words(char const *s, char c)
 	return (counter);
 }
 
-static int	word_len(char const *s, char c)
+int	word_len(char const *s, char c)
 {
 	int	w_len;
 
@@ -38,21 +38,21 @@ static int	word_len(char const *s, char c)
 	return (w_len);
 }
 
-static void	free_words(char **split, int i)
+void	free_words(char **split, int i)
 {
 	while (i > 0)
 		free(split[--i]);
 	free(split);
 }
 
-static char	**split_aux(char const *s, char c, char **split, int word_counter)
+char	**splited(char const *s, char c, char **split, int c_words)
 {
 	int	start;
 	int	i;
 
 	start = 0;
 	i = 0;
-	while (i < word_counter)
+	while (i < c_words)
 	{
 		while (s[start] != '\0' && s[start] == c)
 			start++;
@@ -63,88 +63,46 @@ static char	**split_aux(char const *s, char c, char **split, int word_counter)
 			start++;
 		i++;
 	}
-	split[word_counter] = NULL;
+	split[c_words] = NULL;
 	return (split);
 }
 
-int	main(void)
+char	**ft_split(char const *s, char c)
 {
-	char str[] = "Hello 42 Network split example!";
-	char delimiter = ' '; // Space is the delimiter
-	char **result;
-	int i = 0;
+	char	**split;
+	int		c_words;
 
-	// Call ft_split to split the string into words
-	result = ft_split(str, delimiter);
-
-	// If the split operation is successful, print the words
-	if (result)
-	{
-		while (result[i] != NULL)
-		{
-			printf("Word %d: %s\n", i + 1, result[i]);
-			free(result[i]); // Free each individual word after use
-			i++;
-		}
-		free(result); // Free the array of words
-	}
-	else
-	{
-		printf("Memory allocation failed or invalid input.\n");
-	}
-	return (0);
+	c_words = chunks(s, c);
+	split = (char **)malloc((c_words + 1) * sizeof(char *));
+	if (!split)
+		return (NULL);
+	split = splited(s, c, split, c_words);
+	return (split);
 }
 
-	// int chunks(char *str, int sep)
-	// {
-	// 	int	i;
-	// 	int	count;
+// int main()
+// {
+//     char str[] = "Hello 42 Network split example!";
+//     char delimiter = 'o';
+//     char **result;
+// 		int i = 0;
 
-	// 	i = 0;
-	// 	count = 0;
-	// 	while (str[i] && str[i] != '\0')
-	// 	{
-	// 		if (str[i] == (char) sep)
-	// 			count += 1;
-	// 		i++;
-	// 	}
-	// 	return(count);
-	// }
+//     result = ft_split(str, delimiter);
 
-	// char	**ft_split(char const *s, char c)
-	// {
-	// 	char **new_strings;
-	// 	int	i;
+//     if (result)
+//     {
+//         while (result[i] != NULL)
+//         {
+//             printf("Word %d: %s\n", i + 1, result[i]);
+//             free(result[i]);
+// 						i++;
+//         }
+//         free(result);
+//     }
+//     else
+//     {
+//         printf("Memory allocation failed or invalid input.\n");
+//     }
 
-	// 	new_strings = (char **)malloc(sizeof(char *) * chunks(s, c));
-	// 	if (!new_strings)
-	// 		free (new_strings);
-	// 	return (NULL);
-	// 	while (s[i] == c)
-	// 	{
-	// //
-	// 	}
-	// 	if()
-	// 	return(new_strings);
-	// }
-
-	// malloc && free
-
-	//The array of new strings resulting from the split.
-	//NULL if the allocation fails.
-
-	//The array of new strings resulting from the split.
-	//NULL if the allocation fails.
-
-	//Allocates memory (using malloc(3)) and returns an
-	//array of strings obtained by splitting ’s’ using
-	//the character ’c’ as a delimiter. The array must
-	//end with a NULL pointer..
-	// requirement for malloc is (sizeof(char) * num)
-
-	// Example
-
-	// char str[] = "Hello,World,Today,we, gonna,do,the,make,function";
-
-	// char res[] = {"Hello", "World", "Today", "we", "gonna", "do", "the",
-	//	"make", "function"};
+//     return 0;
+// }
