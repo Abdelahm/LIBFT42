@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 16:05:49 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/29 13:39:57 by abdelahm         ###   ########.fr       */
+/*   Created: 2025/11/29 14:19:59 by abdelahm          #+#    #+#             */
+/*   Updated: 2025/11/29 14:58:23 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_striteri(char *s, void (*f) (unsigned int, char*))
 {
-	char	*d;
-	int		i;
+	unsigned int	i;
 
 	i = 0;
-	if (!s)
-		return (NULL);
-	d = malloc ((ft_strlen(s) + 1) * sizeof(char));
-	if (d == NULL)
-		return (NULL);
-	while (s[i] != '\0')
+	if (!s || !f)
+		return ;
+	while (s[i])
 	{
-		d[i] = f(i, s[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	d[i] = '\0';
-	return (d);
 }
+
+// static void	to_upper(unsigned int index, char *c)
+// {
+// 	(void)index;
+// 	if (*c >= 'a' && *c <= 'z')
+// 		*c = *c - 32;
+// }
+// int	main(void)
+// {
+// 	char s[] = "change these yalla";
+// 	printf("Before: %s\n", s);
+// 	ft_striteri(s, to_upper);
+// 	printf("After:  %s\n", s);
+// 	return (0);
+// }
