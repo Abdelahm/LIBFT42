@@ -6,7 +6,7 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:55:13 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/29 16:03:37 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/12/01 14:39:50 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *list;
+	t_list	*list;
 
 	list = malloc(sizeof(t_list));
 	if (!list)
-		return(NULL);
+		return (NULL);
 	list->content = content;
 	list->next = NULL;
+	return (list);
 }

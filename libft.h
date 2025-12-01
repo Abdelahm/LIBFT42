@@ -6,24 +6,24 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 16:24:18 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/29 16:06:54 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/12/01 14:58:39 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-typedef struct s_list
-{
-	void *content;
-	struct s_list *next;
-} t_list;
-
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
 # include <bsd/string.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -59,7 +59,14 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
 t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+int		ft_lstsize(t_list *lst);
 
 #endif
