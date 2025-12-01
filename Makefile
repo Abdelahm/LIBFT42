@@ -6,7 +6,7 @@
 #    By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/10 15:11:36 by abdelahm          #+#    #+#              #
-#    Updated: 2025/12/01 15:43:58 by abdelahm         ###   ########.fr        #
+#    Updated: 2025/12/01 16:30:10 by abdelahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,13 @@ SOURCE = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_isp
 				ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 SOURCE2 = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstdelone.c ft_lstclear.c ft_lstmap.c ft_lstiter.c \
 				ft_lstadd_back.c
+
 OBJECT = $(SOURCE:.c=.o)
+OBJECT_BONUS = $(SOURCE2:.c=.o)
 
 all: $(NAME)
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, bonus
 
 $(NAME): $(OBJECT)
 	@ar rc $(NAME) $(OBJECT)
@@ -34,9 +36,12 @@ $(NAME): $(OBJECT)
 %.o: %.c
 	@cc $(FLAG) -c $< -o $@
 
-bouns: $(OBJECT)
+bonus: $(OBJECT_BONUS)
+	@echo bonus is Created $(NAME)
+	@ar rc $(NAME) $(OBJECT_BONUS)
+
 clean:
-	@rm -f $(OBJECT)
+	@rm -f $(OBJECT) $(OBJECT_BONUS)
 	@echo "OBJECT files is deleted"
 
 fclean: clean

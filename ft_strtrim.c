@@ -6,7 +6,7 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:08:51 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/24 16:01:03 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/12/01 16:32:28 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	trimmed[end - start + 1] = '\0';
 	return (trimmed);
 }
+
 // int	main(void)
 // {
 // 	char	s1[] = "001Hello100";

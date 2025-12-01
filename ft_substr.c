@@ -6,7 +6,7 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 17:26:12 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/24 16:01:53 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/12/01 16:51:24 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,37 +45,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 // char *temp = ft_substr(s, start, len);
 // 	printf("%s", temp);
 // free (temp);
-// 	return (0);
-// }
-
-char	*ft_strtrim(const char *s1, const char *set)
-{
-	int		start;
-	int		end;
-	char	*trimmed;
-
-	start = 0;
-	if (!s1 || !set)
-		return (NULL);
-	end = strlen(s1) - 1;
-	while (s1[start] && strchr(set, s1[start]))
-		start++;
-	while (end >= start && strchr(set, s1[end]))
-		end--;
-	trimmed = malloc(end - start + 2);
-	if (!trimmed)
-		return (NULL);
-	memcpy(trimmed, s1 + start, end - start + 1);
-	trimmed[end - start + 1] = '\0';
-	return (trimmed);
-}
-
-// // Example usage
-// #include <stdio.h>
-// int main()
-// {
-// 	char *s = ft_strtrim("+++hello++", "+");
-// 	printf("'%s'\n", s);  // Output: 'hello'
-// 	free(s);
 // 	return (0);
 // }
