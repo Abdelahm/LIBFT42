@@ -6,13 +6,13 @@
 /*   By: abdelahm <abdelahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:32:18 by abdelahm          #+#    #+#             */
-/*   Updated: 2025/11/28 15:43:37 by abdelahm         ###   ########.fr       */
+/*   Updated: 2025/12/16 18:44:17 by abdelahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	chunks(char const *s, char c)
+static int	chunks(char const *s, char c)
 {
 	int	i;
 	int	counter;
@@ -28,7 +28,7 @@ int	chunks(char const *s, char c)
 	return (counter);
 }
 
-int	word_len(char const *s, char c)
+static int	word_len(char const *s, char c)
 {
 	int	w_len;
 
@@ -38,14 +38,14 @@ int	word_len(char const *s, char c)
 	return (w_len);
 }
 
-void	free_words(char **split, int i)
+static void	free_words(char **split, int i)
 {
 	while (i > 0)
 		free(split[--i]);
 	free(split);
 }
 
-char	**splited(char const *s, char c, char **split, int c_words)
+static char	**splited(char const *s, char c, char **split, int c_words)
 {
 	int	start;
 	int	i;
